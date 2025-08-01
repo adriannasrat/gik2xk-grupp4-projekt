@@ -3,7 +3,6 @@ import { Routes, Route } from "react-router-dom";
 import Products from "./components/Products/Products";
 import SignUp from "./components/Auth/SignUp";
 import SignIn from "./components/Auth/SignIn";
-import Test from "./components/Test";
 import MyCart from "./components/Cart/MyCart";
 import ProductDetails from "./components/ProductDetails";
 import AdminDashboard from "./components/AdminDashboard";
@@ -35,7 +34,6 @@ function App() {
         path="/products/:id"
         element={<ProductDetails user={user} setUser={setUser} />}
       />
-      <Route path="/test" element={<Test user={user} />} />
       <Route
         path="/my-cart"
         element={<MyCart user={user} setUser={setUser} />}
