@@ -19,11 +19,15 @@ const Products = ({ user, setUser }) => {
 
       <div className="flex-grow mb-12 px-6">
         <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-8">
-          {products.map((product) => (
-            <li key={product.id} className="list-none">
-              <Product product={product} user={user} />{" "}
-            </li>
-          ))}
+          {products && products.length > 0 ? (
+            products.map((product) => (
+              <li key={product.id} className="list-none">
+                <Product product={product} user={user} />{" "}
+              </li>
+            ))
+          ) : (
+            <p>No products available.</p>
+          )}
         </div>
       </div>
 

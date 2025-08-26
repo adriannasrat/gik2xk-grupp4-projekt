@@ -30,7 +30,7 @@ const Product = sequelize.define("Product", {
 });
 
 (async () => {
-  await Product.sync({ alter: true });
+  // await Product.sync({ alter: true });
   console.log("Product table created");
 })();
 

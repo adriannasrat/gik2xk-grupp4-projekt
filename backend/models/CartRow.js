@@ -32,7 +32,7 @@ const CartRow = sequelize.define("CartRow", {
 });
 
 (async () => {
-  await CartRow.sync({ alter: true });
+  // await CartRow.sync({ alter: true });
   console.log("CartRows table created");
 })();
 
