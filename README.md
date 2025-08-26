@@ -135,12 +135,13 @@ These services are the brain of your backend logic:
 
 ```bash
 cd backend
-npm install
+npx sequelize-cli db:migrate
+node server.js
 ```
 	
  Create a .env file based on .env.example and fill in DB credentials.
 	
- •	Run Sequelize migrations or sync models directly.
+ • Run Sequelize migrations or sync models directly.
  
  Start server: node app.js
 
@@ -171,5 +172,10 @@ DB_PASSWORD=yourpassword
 - Portfolio: https://a-n-v.vercel.app/
 - GitHub: https://github.com/aliadrian
 
-# Captures of the shop
-
+# Images of the shop
+### Login page
+![](./assets/loginPage.png)
+### Home page
+![](./assets/homePage.png)
+### Cart page
+![](./assets/cartPage.png)
