@@ -23,7 +23,7 @@ const Cart = sequelize.define("Cart", {
 });
 
 (async () => {
-  await Cart.sync({ alter: true });
+  // await Cart.sync({ alter: true });
   console.log("Carts table created");
 })();
 
