@@ -131,25 +131,98 @@ These services are the brain of your backend logic:
 - MariaDB
 - npm or yarn
 
-### Backend Setup
+
+## Backend Setup
+
+### 1. Install Dependencies
+
+From the root of your project, install the backend dependencies:
+
+```bash
+npm install
+```
+
+> This will install both Express, Sequelize, and the MariaDB driver (`mariadb`).
+
+---
+
+### 2. Create Your `.env` File
+
+Create a `.env` file inside the **`backend/` folder** (or project root if you prefer), and include your database credentials:
+
+```bash
+DB_NAME=shop_db
+DB_USER=webshop_user
+DB_PASSWORD=yourpassword
+DB_HOST=localhost
+DB_DIALECT=mariadb
+```
+
+> Replace `webshop_user` and `yourpassword` with your actual MariaDB user credentials.  
+> Make sure this user has access to create and drop tables in `shop_db`.
+
+---
+
+### 3. Ensure Database Exists
+
+Make sure the `shop_db` database exists in MariaDB. You can do this from the terminal:
+
+```bash
+mysql -u root -p -e "CREATE DATABASE IF NOT EXISTS shop_db;"
+```
+
+---
+
+### 4. Run the Migration Script
+
+Run the custom Sequelize-based migration script to:
+
+- Drop existing tables in the correct foreign key order
+- Recreate all tables
+- Insert seed product data
+
+```bash
+npm run migrate
+```
+
+This script is defined in your `package.json`:
+
+```json
+"scripts": {
+  "migrate": "node backend/migrate.js"
+}
+```
+
+> Make sure `migrate.js` is inside the `backend/` folder and is correctly wired to `require("./config/database")` and `require("./models")`.
+
+---
+
+### 5. Start the Backend Server
+
+After successful migration, start the backend API server:
 
 ```bash
 cd backend
-npx sequelize-cli db:migrate
-node server.js
+nose server.js
 ```
-	
- Create a .env file based on .env.example and fill in DB credentials.
-	
- • Run Sequelize migrations or sync models directly.
- 
- Start server: node app.js
+
+Your Express server will now be running on `http://localhost:3001` (or whichever port you've defined).
+
+---
+
+### Troubleshooting Tips
+
+- **Logged-in but no users in DB?**  
+  → You likely have a leftover login token in localStorage or cookies. Clear browser storage.
+
+- **Access denied for user?**  
+  → Check your `.env` values. Make sure the user exists in MariaDB and has full access to `shop_db`.
+  
 
  ## Frontend setup
 ```bash
-cd frontend
 npm install
-npm run dev  # or npm start if using CRA
+npm start
 ```
 
 ### Environment Variables
@@ -157,11 +230,11 @@ npm run dev  # or npm start if using CRA
 Example .env setup:
 
 ```bash
-DB_HOST=localhost
-DB_PORT=3306
-DB_NAME=react_webshop
-DB_USER=root
+DB_NAME=shop_db
+DB_USER=youruser
 DB_PASSWORD=yourpassword
+DB_HOST=localhost
+DB_DIALECT=mariadb
 ```
 
 ### Author
