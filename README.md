@@ -225,18 +225,6 @@ npm install
 npm start
 ```
 
-### Environment Variables
-
-Example .env setup:
-
-```bash
-DB_NAME=shop_db
-DB_USER=youruser
-DB_PASSWORD=yourpassword
-DB_HOST=localhost
-DB_DIALECT=mariadb
-```
-
 ### Author
 
 - Adrian Nasrat
