@@ -203,7 +203,7 @@ After successful migration, start the backend API server:
 
 ```bash
 cd backend
-nose server.js
+node server.js
 ```
 
 Your Express server will now be running on `http://localhost:3001` (or whichever port you've defined).
