@@ -231,7 +231,6 @@ npm start
 - Systems Scientist | Dalarna University
 - Junior Software Engineer
 - Portfolio: https://a-n-v.vercel.app/
-- GitHub: https://github.com/aliadrian
 
 # Images of the shop
 ### Login page
